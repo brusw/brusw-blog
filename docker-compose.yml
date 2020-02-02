@@ -1,0 +1,42 @@
+version: "3.7"
+services:
+
+  koa:
+    build: ./src/koa
+    image: brusw/blog-koa
+    container_name: brusw-blog-koa
+    ports:
+      - "3000:3000"
+    networks:
+      - blog
+    restart: always
+    volumes:
+      - /srv/www/brusw-blog/config:/usr/src/app/config
+
+  nuxt:
+    build: ./src/nuxt
+    image: brusw/blog-nuxt
+    container_name: brusw-blog-nuxt
+    ports:
+      - "5000:5000"
+    networks:
+      - blog
+    depends_on:
+      - koa
+    restart: always
+
+  admin:
+    build: ./src/admin
+    image: brusw/blog-admin
+    container_name: brusw-blog-admin
+    ports:
+      - "8080:8080"
+    networks:
+      - blog
+    depends_on:
+      - koa
+    restart: always
+
+networks:
+  blog:
+    external: true
