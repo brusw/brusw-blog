@@ -1,15 +1,18 @@
-FROM node:10
-
+FROM alpine AS builder
 WORKDIR /usr/src/app
+RUN apk add --no-cache --update nodejs nodejs-npm
 
-COPY package*.json ./
-
-RUN npm install -g http-server
+COPY package.json package-lock.json ./
 RUN npm install
 
-COPY . .
-RUN npm run build
+FROM alpine
+WORKDIR /usr/src/app
+RUN apk add --no-cache --update nodejs nodejs-npm
 
-EXPOSE 8080
+RUN npm install -g http-server
+COPY --from=builder /usr/src/app/node_modules ./node_modules
+COPY . .
+
+RUN npm run build
 WORKDIR dist
 CMD [ "http-server" ]

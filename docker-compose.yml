@@ -11,7 +11,7 @@ services:
       - blog
     restart: always
     volumes:
-      - /srv/www/brusw-blog/config:/usr/src/app/config
+      - /srv/www/blog/config:/usr/src/app/config
 
   nuxt:
     build: ./src/nuxt
