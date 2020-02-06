@@ -1,6 +1,7 @@
 {
   "name": "brusw-blog-admin",
   "version": "1.0.0",
+  "author": "brusw",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

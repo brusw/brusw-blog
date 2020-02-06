@@ -1,7 +1,8 @@
 {
   "name": "brusw-blog-koa",
   "version": "1.0.0",
-  "description": "",
+  "author": "brusw",
+  "private": true,
   "main": "app.js",
   "scripts": {
     "dev": "nodemon",
@@ -9,7 +10,6 @@
     "start:prod": "node app.js"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
