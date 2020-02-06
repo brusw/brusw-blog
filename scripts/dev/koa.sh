@@ -1,7 +1,7 @@
 cd ../../src/koa
 
-echo 'npm install'
-npm install
+echo 'yarn install'
+yarn install
 
-echo 'npm run dev'
-npm run dev
+echo 'yarn run dev'
+yarn run dev

@@ -1,7 +1,6 @@
 {
   "name": "brusw-blog-nuxt",
   "version": "1.0.0",
-  "description": "个人博客",
   "author": "brusw",
   "private": true,
   "scripts": {

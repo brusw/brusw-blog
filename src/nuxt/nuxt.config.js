@@ -17,9 +17,9 @@ module.exports = {
       { 'http-equiv': 'cleartype', content: 'on' },
       { 'http-equiv': 'Cache-Control' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
-      { hid: 'keywords', name: 'keywords', content: '博客' },
+      { hid: 'keywords', name: 'keywords', content: 'Bruce Wei\'s Blog' },
       { name: 'author', content: 'brusw@outlook.com' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: 'Bruce Wei\'s Blog' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

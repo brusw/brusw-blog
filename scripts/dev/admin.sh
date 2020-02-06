@@ -1,7 +1,7 @@
 cd ../../src/admin
 
-echo 'npm install'
-npm install
+echo 'yarn install'
+yarn install
 
-echo 'npm run serve'
-npm run serve
+echo 'yarn run serve'
+yarn run serve
