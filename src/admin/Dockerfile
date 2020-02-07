@@ -19,6 +19,4 @@ RUN apk add --no-cache --update nginx
 
 COPY --from=publisher /usr/src/app/dist ./dist
 COPY nginx.conf /etc/nginx/nginx.conf
-
-WORKDIR /usr/src/app/dist
 CMD [ "nginx", "-g", "daemon off;" ]
