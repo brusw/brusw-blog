@@ -1,0 +1,62 @@
+version: "3.7"
+services:
+
+  koa:
+    image: registry.cn-hangzhou.aliyuncs.com/brusw/blog-koa
+    ports:
+      - "3000:3000"
+    networks:
+      - blog
+    volumes:
+      - /srv/www/blog/config:/usr/src/app/config
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          memory: 100M
+      restart_policy:
+        max_attempts: 3
+      update_config:
+        order: start-first
+      placement:
+        constraints: [node.role==worker]
+
+  nuxt:
+    image: registry.cn-hangzhou.aliyuncs.com/brusw/blog-nuxt
+    ports:
+      - "5000:5000"
+    networks:
+      - blog
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          memory: 200M
+      restart_policy:
+        max_attempts: 3
+      update_config:
+        order: start-first
+      placement:
+        constraints: [node.role==worker]
+
+  admin:
+    image: registry.cn-hangzhou.aliyuncs.com/brusw/blog-admin
+    ports:
+      - "8080:8080"
+    networks:
+      - blog
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          memory: 50M
+      restart_policy:
+        max_attempts: 3
+      update_config:
+        order: start-first
+      placement:
+        constraints: [node.role==worker]
+
+networks:
+  blog:
+    external: true
