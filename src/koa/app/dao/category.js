@@ -43,6 +43,7 @@ class CategoryDao {
       })
     }
     category.name = v.get('body.name')
+    category.cover = v.get('body.cover')
     category.description = v.get('body.description')
     category.save()
   }
