@@ -15,6 +15,10 @@ export const state = () => ({
 })
 
 export const mutations = {
+  setTag(state, tag) {
+    state.tag = tag
+  },
+
   setTagAndCategories(state, { tags, categories }) {
     state.tags = tags
     state.categories = categories
@@ -39,6 +43,16 @@ export const mutations = {
 }
 
 export const actions = {
+  async getTag({ commit }, id) {
+    try {
+      const result = await tag.getTag(id)
+      commit('setTag', result)
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(e)
+    }
+  },
+
   async getTagAndCategories({ commit }) {
     try {
       const tags = await tag.getTags()

@@ -50,10 +50,7 @@ export default {
   methods: {
     onSelectTag(tag) {
       this.$router.push({
-        path: `/tag/${tag.id}`,
-        query: {
-          name: tag.name
-        }
+        path: `/tag/${tag.id}`
       })
     }
   }
