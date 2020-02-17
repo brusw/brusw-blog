@@ -73,10 +73,10 @@ module.exports = {
     {
       src: '~/plugins/global-component.js'
     },
-    {
-      src: '~/plugins/copy.js',
-      ssr: false
-    }
+    // {
+    //   src: '~/plugins/copy.js',
+    //   ssr: false
+    // }
   ],
   /**
    * router config
