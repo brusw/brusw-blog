@@ -6,7 +6,8 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - blog
+      - frontend
+      - backend
     volumes:
       - /srv/www/blog/config:/usr/src/app/config
     deploy:
@@ -15,7 +16,7 @@ services:
         limits:
           memory: 100M
       restart_policy:
-        max_attempts: 3
+        condition: on-failure
       update_config:
         order: start-first
       placement:
@@ -26,14 +27,14 @@ services:
     ports:
       - "5000:5000"
     networks:
-      - blog
+      - frontend
     deploy:
       replicas: 2
       resources:
         limits:
           memory: 200M
       restart_policy:
-        max_attempts: 3
+        condition: on-failure
       update_config:
         order: start-first
       placement:
@@ -44,19 +45,21 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - blog
+      - frontend
     deploy:
       replicas: 2
       resources:
         limits:
           memory: 50M
       restart_policy:
-        max_attempts: 3
+        condition: on-failure
       update_config:
         order: start-first
       placement:
         constraints: [node.role==worker]
 
 networks:
-  blog:
+  frontend:
+    external: true
+  backend:
     external: true
