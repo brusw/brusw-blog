@@ -12,7 +12,7 @@
 - [Node.js](https://nodejs.org) - JavaScript runtime.
 - [Yarn](https://classic.yarnpkg.com/lang/en) - Package manager for JavaScript.
 - [Nodemon](https://nodemon.io) - A tool that helps develop node.js based applications.
-- [MySQL](https://www.mysql.com) - Open source Relational database management system.
+- [MySQL](https://www.mysql.com) - Open source relational database management system.
 
 ### DEV scripts
 
