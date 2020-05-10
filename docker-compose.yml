@@ -3,7 +3,7 @@ services:
 
   koa:
     build: ./src/koa
-    image: registry.cn-hangzhou.aliyuncs.com/brusw/blog-koa
+    image: brusw/blog-koa
     container_name: brusw-blog-koa
     ports:
       - "3000:3000"
@@ -15,7 +15,7 @@ services:
 
   nuxt:
     build: ./src/nuxt
-    image: registry.cn-hangzhou.aliyuncs.com/brusw/blog-nuxt
+    image: brusw/blog-nuxt
     container_name: brusw-blog-nuxt
     ports:
       - "5000:5000"
@@ -27,7 +27,7 @@ services:
 
   admin:
     build: ./src/admin
-    image: registry.cn-hangzhou.aliyuncs.com/brusw/blog-admin
+    image: brusw/blog-admin
     container_name: brusw-blog-admin
     ports:
       - "8080:8080"

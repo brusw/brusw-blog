@@ -2,7 +2,7 @@ version: "3.7"
 services:
 
   koa:
-    image: registry.cn-hangzhou.aliyuncs.com/brusw/blog-koa
+    image: brusw/blog-koa
     ports:
       - "3000:3000"
     networks:
@@ -23,7 +23,7 @@ services:
         constraints: [node.role==worker]
 
   nuxt:
-    image: registry.cn-hangzhou.aliyuncs.com/brusw/blog-nuxt
+    image: brusw/blog-nuxt
     ports:
       - "5000:5000"
     networks:
@@ -41,7 +41,7 @@ services:
         constraints: [node.role==worker]
 
   admin:
-    image: registry.cn-hangzhou.aliyuncs.com/brusw/blog-admin
+    image: brusw/blog-admin
     ports:
       - "8080:8080"
     networks:
