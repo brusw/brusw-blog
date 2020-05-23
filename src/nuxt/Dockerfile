@@ -3,8 +3,7 @@ WORKDIR /usr/src/app
 RUN apk add --no-cache --update nodejs yarn
 
 COPY package.json yarn.lock ./
-RUN yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g && \
-    yarn install --production
+RUN yarn install --production
 
 FROM alpine
 WORKDIR /usr/src/app
