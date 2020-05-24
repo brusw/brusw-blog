@@ -6,8 +6,6 @@ pipeline {
     stages {
         stage ("Build") {
             steps {
-                checkout scm
-
                 script {
                     for (proj in projects) {
                         sh "docker build -t brusw/blog-${proj}:latest src/${proj}"
