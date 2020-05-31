@@ -1,43 +1,58 @@
-def projects = ["koa", "nuxt", "admin"]
+def STACK_NAME = "brusw_blog"
 
 pipeline {
     agent any
 
+    environment {
+        PATH = "$PATH:/usr/local/bin"
+    }
+
     stages {
-        stage ("Build") {
+        stage ("Deliver for development") {
+            when {
+                branch "dev"
+            }
             steps {
-                script {
-                    for (proj in projects) {
-                        sh "docker build -t brusw/blog-${proj}:latest src/${proj}"
-                    }
+                sh "docker-compose up -d"
+            }
+            post {
+                success {
+                    sh "docker-compose ps"
                 }
             }
         }
-        stage ("Release") {
+
+        stage ("Release docker image") {
+            when {
+                branch "master"
+            }
             steps {
                 script {
-                    def registryAuth = "cc27921d-ae66-4b81-b33d-185eb27f3963"
-
-                    withCredentials ([usernamePassword(credentialsId: "${registryAuth}", passwordVariable: "password", usernameVariable: "username")]) {                           
+                    withCredentials ([usernamePassword(credentialsId: "docker-hub-credentials",
+                        passwordVariable: "password", usernameVariable: "username")]) {
                         sh "docker login -u ${username} -p ${password}"
                     }
 
-                    for (proj in projects) {
+                    for (proj in ["koa", "nuxt", "admin"]) {
+                        sh "docker build -t brusw/blog-${proj}:latest src/${proj}"
                         sh "docker push brusw/blog-${proj}:latest"
                     }
                 }
             }
         }
-        stage ("Deploy") {
-            steps {
-                sh "docker stack deploy -c docker-stack.yml brusw_blog"
-            }
-        }
-    }
 
-    post {
-        success {
-            sh "docker stack services brusw_blog"
+        stage ("Deploy for production") {
+            when {
+                tag "v*"
+            }
+            steps {
+                sh "docker stack deploy -c docker-stack.yml ${STACK_NAME}"
+            }
+            post {
+                success {
+                    sh "docker stack services ${STACK_NAME}"
+                }
+            }
         }
     }
 }
