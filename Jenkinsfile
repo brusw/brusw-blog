@@ -28,14 +28,11 @@ pipeline {
             }
             steps {
                 script {
-                    withCredentials ([usernamePassword(credentialsId: "docker-hub-credentials",
-                        passwordVariable: "password", usernameVariable: "username")]) {
-                        sh "docker login -u ${username} -p ${password}"
-                    }
-
-                    for (proj in ["koa", "nuxt", "admin"]) {
-                        sh "docker build -t brusw/blog-${proj}:latest src/${proj}"
-                        sh "docker push brusw/blog-${proj}:latest"
+                    docker.withRegistry("https://registry.hub.docker.com", "docker-hub-credentials") {
+                        for (proj in ["koa", "nuxt", "admin"]) {
+                            def image = docker.build("brusw/blog-${proj}:latest", "src/${proj}")
+                            image.push()
+                        }
                     }
                 }
             }
