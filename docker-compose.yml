@@ -3,7 +3,7 @@ services:
 
   koa:
     build: ./src/koa
-    image: brusw/blog-koa
+    image: brusw/blog-koa:beta
     container_name: brusw-blog-koa
     ports:
       - "3000:3000"
@@ -15,7 +15,7 @@ services:
 
   nuxt:
     build: ./src/nuxt
-    image: brusw/blog-nuxt
+    image: brusw/blog-nuxt:beta
     container_name: brusw-blog-nuxt
     ports:
       - "5000:5000"
@@ -27,7 +27,7 @@ services:
 
   admin:
     build: ./src/admin
-    image: brusw/blog-admin
+    image: brusw/blog-admin:beta
     container_name: brusw-blog-admin
     ports:
       - "8080:8080"

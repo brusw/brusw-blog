@@ -2,7 +2,7 @@ version: "3.7"
 services:
 
   koa:
-    image: brusw/blog-koa
+    image: brusw/blog-koa:latest
     ports:
       - "3000:3000"
     networks:
@@ -23,7 +23,7 @@ services:
         constraints: [node.role==worker]
 
   nuxt:
-    image: brusw/blog-nuxt
+    image: brusw/blog-nuxt:latest
     ports:
       - "5000:5000"
     networks:
@@ -41,7 +41,7 @@ services:
         constraints: [node.role==worker]
 
   admin:
-    image: brusw/blog-admin
+    image: brusw/blog-admin:latest
     ports:
       - "8080:8080"
     networks:
