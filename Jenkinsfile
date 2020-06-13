@@ -13,7 +13,7 @@ pipeline {
                 branch "dev"
             }
             steps {
-                sh "docker-compose up -d"
+                sh "docker-compose up --build -d"
             }
             post {
                 success {
