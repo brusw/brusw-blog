@@ -6,7 +6,16 @@
 
 <h1 align="center">Bruce Wei's Blog</h1>
 
-[![](https://resource.brusw.com/blog/screenshot/2020-02-29/%E9%A6%96%E9%A1%B5%20%C2%B7%20Bruce%20Wei%27s%20Blog.jpg)](https://brusw.com)
+<p align="center">
+  <a href="https://jenkins.brusw.com/job/brusw.com/job/dev">
+    <img src="https://jenkins.brusw.com/buildStatus/icon?job=brusw.com%2Fdev">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+  </a>
+</p>
+
+[![](https://resource.brusw.com/homepage.jpg)](https://brusw.com)
 
 ## 🖥 ENV dependencies
 - [Node.js](https://nodejs.org) - JavaScript runtime.
