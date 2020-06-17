@@ -10,8 +10,9 @@
   <a href="https://jenkins.brusw.com/job/brusw.com/job/dev">
     <img src="https://jenkins.brusw.com/buildStatus/icon?job=brusw.com%2Fdev">
   </a>
-  <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+
+  <a href="https://github.com/brusw/brusw.com/tags">
+    <img src="https://img.shields.io/github/v/tag/brusw/brusw.com?style=social">
   </a>
 </p>
 
