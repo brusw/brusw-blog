@@ -330,6 +330,14 @@ export default {
       }
     },
 
+    getCreatedDate() {
+      if (this.form.createdDate) {
+        return new Date(this.form.createdDate)
+      } else {
+        return ""
+      }
+    },
+
     // 过滤全部
     fitlerAll(arr) {
       let result = [].concat(arr)
@@ -350,6 +358,7 @@ export default {
       this.tags = this.fitlerAll(this.infoTags)
       this.authors = this.fitlerAll(this.infoAuthors)
       this.form = JSON.parse(JSON.stringify(this.info))
+      this.form.createdDate = this.getCreatedDate()
     }
   }
 };
