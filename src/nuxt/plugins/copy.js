@@ -3,7 +3,7 @@ if (process.env.NODE_ENV === 'production') {
 
 ---------------------
 作者：Bruce Wei
-来源：https://brusw.com/`
+来源：https://blog.brusw.com/`
 
   document.addEventListener('copy', e => {
     if (!window.getSelection) {

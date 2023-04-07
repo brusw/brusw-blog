@@ -3,7 +3,7 @@
     <div class="footer-wrapper">
       <a class="between">
         <switch-theme :size="'18px'"></switch-theme>
-        <span class="logo">brusw</span>
+        <span class="logo">Bruce</span>
       </a>
       <div class="menu-wrapper">
         <desktop-nav :navList="navList"></desktop-nav>
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <span class="copyright">© {{currentYear}} <span class="logo">brusw</span></span>. All Right Reserved.
+      <span class="copyright">© {{currentYear}} <span class="logo"><a href="https://brucewei.com" target="_blank">Bruce</a></span></span>. All Right Reserved.
     </div>
   </footer>
 </template>

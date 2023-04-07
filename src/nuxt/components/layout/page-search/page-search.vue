@@ -26,7 +26,7 @@
       </div>
       <footer class="footer">
         <switch-theme :size="'18px'"></switch-theme>
-        <span class="logo">brusw.</span>
+        <span class="logo">Bruce.</span>
         <span class="desc">#&nbsp;I am what I am&nbsp;#</span>
       </footer>
     </aside>
