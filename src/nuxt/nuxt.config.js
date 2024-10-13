@@ -103,7 +103,7 @@ module.exports = {
   ],
 
   googleAnalytics: {
-    id: 'UA-156555272-1'
+    id: 'G-5G64B7TQRG'
   },
 
   styleResources: {
